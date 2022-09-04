@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace XUnitDemo.pages
 {
-    class OrderPage
+  public class OrderPage
     {
         WebDriverFixture webDriverFixture;
         public OrderPage(WebDriverFixture webDriverFixture)
@@ -17,9 +17,9 @@ namespace XUnitDemo.pages
         public bool verifyOrderList()
         {
             var driver = webDriverFixture.ChromeDriver;
-            IWebElement orderLink = driver.FindElementByLinkText("Orders");
+            IWebElement orderLink = driver.FindElement(By.LinkText("Orders"));
             orderLink.Click();
-            IList<IWebElement> orderListTableRows = driver.FindElementsByXPath("//table/tbody/tr");
+            IList<IWebElement> orderListTableRows = driver.FindElements(By.XPath("//table/tbody/tr"));
             foreach(IWebElement eachOrder in orderListTableRows)
             {
               IWebElement eachRow=  eachOrder.FindElement(By.XPath("//td[2]/a"));

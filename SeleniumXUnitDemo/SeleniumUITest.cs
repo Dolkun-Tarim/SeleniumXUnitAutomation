@@ -1,7 +1,5 @@
-﻿using OpenQA.Selenium;
-using Xunit;
+﻿using Xunit;
 using Xunit.Abstractions;
-using FluentAssertions;
 using XUnitDemo.pages;
 using System;
 

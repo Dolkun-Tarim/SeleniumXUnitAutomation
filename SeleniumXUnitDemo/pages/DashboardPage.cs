@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace XUnitDemo.pages
 {
-    class DashboardPage
+  public  class DashboardPage
     {
         WebDriverFixture webDriverFixture;
         public DashboardPage(WebDriverFixture webDriverFixture)
@@ -17,7 +17,7 @@ namespace XUnitDemo.pages
         public bool verifyCustomerLink()
         {
             var driver = webDriverFixture.ChromeDriver;
-            IWebElement customerLink = driver.FindElementByLinkText("Customer List");
+            IWebElement customerLink = driver.FindElement(By.LinkText("Customer List"));
             return customerLink.Displayed;
 
         }
@@ -25,7 +25,7 @@ namespace XUnitDemo.pages
         public bool verifyProductsLink()
         {
             var driver = webDriverFixture.ChromeDriver;
-            IWebElement productLink = driver.FindElementByLinkText("Products");
+            IWebElement productLink = driver.FindElement(By.LinkText("Products"));
             return productLink.Displayed;
         }
     }

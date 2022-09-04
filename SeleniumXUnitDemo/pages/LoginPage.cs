@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace XUnitDemo.pages
 {
     
-    class LoginPage
+ public  class LoginPage
     {
         WebDriverFixture webDriverFixture;
         public LoginPage(WebDriverFixture webDriverFixture)
@@ -19,10 +19,10 @@ namespace XUnitDemo.pages
         {
             var driver = webDriverFixture.ChromeDriver;
             driver.Navigate().GoToUrl(url);
-            driver.FindElementById("username").SendKeys(username);
-            driver.FindElementById("password").SendKeys(password);
-            driver.FindElementById("login").Click();
-            IWebElement logoutIcon = driver.FindElementByCssSelector("i.fa.fa-sign-out");
+            driver.FindElement(By.Id("username")).SendKeys(username);
+            driver.FindElement(By.Id("password")).SendKeys(password);
+            driver.FindElement(By.Id("login")).Click();
+            IWebElement logoutIcon = driver.FindElement(By.CssSelector("i.fa.fa-sign-out"));
             return logoutIcon.Displayed;
         }
 
@@ -30,9 +30,9 @@ namespace XUnitDemo.pages
         {
             var driver = webDriverFixture.ChromeDriver;
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
-            IWebElement logoutButton = driver.FindElementByCssSelector("i.fa.fa-sign-out");
+            IWebElement logoutButton = driver.FindElement(By.CssSelector("i.fa.fa-sign-out"));
             logoutButton.Click();
-            IWebElement loginButton = driver.FindElementById("login");
+            IWebElement loginButton = driver.FindElement(By.Id("login"));
             return loginButton.Displayed;
         }
     }
